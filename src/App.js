@@ -14,7 +14,6 @@ export default function App() {
 }
 
 // !======bad desigion==========
-
 // export default function App() {
 
 //   return (
