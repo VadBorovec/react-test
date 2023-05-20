@@ -9,8 +9,17 @@ export const Card = styled.div`
 
   &:hover,
   &:focus {
-    background-color: tomato;
+    border: none;
+    background-color: ${props => props.theme.colors.secondaryText};
     transform: scale(1.1);
+  }
+
+  &:hover {
+    h2,
+    p,
+    svg {
+      color: white;
+    }
   }
 `;
 
