@@ -1,83 +1,161 @@
 import React from "react";
+import { TopBlock, Title, MainSection } from "./app.styled";
 import Container from "./components/ui/Container";
-import Example from "./example/Example";
 import Cart from "./components/Cart/Cart";
 import Header from "./components/Header/Header";
 import ProductsList from "./components/ProductsList";
+import AuthForm from "./components/Form/AuthForm";
+import Search from "./components/Search";
+import OrderForm from "./components/OrderForm/OrderForm";
+
+import debounce from "lodash.debounce";
+
+import products from "./assets/products";
 
 export default class App extends React.Component {
   state = {
-    products: [
-      { id: 1, image: "🍟", price: 8, name: "Fries" },
-      { id: 2, image: "🥤", price: 4, name: "Coca-Cola" },
-      { id: 3, image: "🍔", price: 12, name: "Burger" },
-    ],
+    products,
     cart: [],
-    isCartOpen: false,
+    searchQuery: "",
+    isCartModalOpen: false,
+    isAuthModalOpen: false,
   };
 
-  handleToogleCart = () => {
-    this.setState((prevState) => ({ isCartOpen: !prevState.isCartOpen }));
-  };
-
-  handleBackdrop = (e) => {
-    if (e.currentTarget === e.target) {
-      this.handleToogleCart();
-    }
-  };
-
-  handleRemoveFromCart = (id) => {
-    // СПРОБУЙТЕ ЗРОБИТИ ЗАМОСТІЙНО
-  };
-
-  handleAddToCart = (id) => {
-    // перевіряємо чи є цей пролукт у корзині
+  addToCart = (productId) => {
     const isProductInCart = this.state.cart.find(
-      (product) => product.id === id
+      (product) => product.id === productId
     );
 
     if (!isProductInCart) {
-      // якщо продукта немає у корзині, то ми його додаємо та додаємо також нову властивість quantity яка сигналізує нам що цей продукт ми додали в корзину вперше
+      const product = this.state.products.find(
+        (product) => product.id === productId
+      );
 
-      // шукаємо продукт у базі, який має той ж id який нам прийшов параметром
-      const product = this.state.products.find((product) => product.id === id);
-
-      // оновлюємо стан, розпилюємо попередні значення + додаємо новий продукт з властивістю quantity, яка сигналізує нам що цей продукт ми додали в корзину вперше
       this.setState((prevState) => ({
         cart: [...prevState.cart, { ...product, quantity: 1 }],
       }));
-    } else {
-      // якщо продукт уже є у корзині, то ми його збільшуємо його поточну кількість на 1
-
-      //  оновлюємо кількість того продукта, на який повторно нажали і перезаписуємо стейт
-      const updatedCart = this.state.cart.map((item) => {
-        if (isProductInCart.id === item.id) {
-          return { ...item, quantity: (item.quantity += 1) };
-        }
-        return item;
-      });
-
-      this.setState({ cart: updatedCart });
     }
   };
-  
-  render() {
-    const { cart, products } = this.state;
 
+  handleIncrementProduct = (productId) => {
+    const product = this.state.cart.find((product) => product.id === productId);
+
+    const updatedCart = this.state.cart.map((item) => {
+      if (product.id === item.id) {
+        return { ...item, quantity: (item.quantity += 1) };
+      }
+      return item;
+    });
+
+    this.setState({ cart: updatedCart });
+  };
+
+  handleDecrementProduct = (productId) => {
+    const product = this.state.cart.find((product) => product.id === productId);
+
+    if (product.quantity <= 1) {
+      this.removeFromCart(productId);
+      return;
+    }
+
+    const updatedCart = this.state.cart.map((item) => {
+      if (product.id === item.id) {
+        return { ...item, quantity: (item.quantity -= 1) };
+      }
+      return item;
+    });
+
+    this.setState({ cart: updatedCart });
+  };
+
+  removeFromCart = (productId) => {
+    const updatedCart = this.state.cart.filter(
+      (product) => product.id !== productId
+    );
+    this.setState({ cart: updatedCart });
+  };
+
+  getProductQuantity = (productId) => {
+    const product = this.state.cart.find((product) => product.id === productId);
+    return product?.quantity;
+  };
+
+  handleCartModal = () => {
+    this.setState((prevState) => ({
+      isCartModalOpen: !prevState.isCartModalOpen,
+    }));
+  };
+
+  handleAuthModal = () => {
+    this.setState((prevState) => ({
+      isAuthModalOpen: !prevState.isAuthModalOpen,
+    }));
+  };
+
+  onSubmit = (data) => {
+    console.log(data);
+  };
+
+  changeSearchQuery = ({ target }) => {
+    this.setState({
+      searchQuery: target.value,
+    });
+  };
+
+  getProductsBySearchQuery = () => {
+    const normalizedSearchQuery = this.state.searchQuery.toLowerCase();
+
+    const filteredProducts = this.state.products.filter((product) =>
+      product.name.toLowerCase().includes(normalizedSearchQuery)
+    );
+
+    return filteredProducts;
+  };
+
+  render() {
     return (
       <Container>
-        {/* <Example/> */}
-
-        <Header handleToogleCart={this.handleToogleCart} cart={cart} />
-        <ProductsList
-          handleAddToCart={this.handleAddToCart}
-          products={products}
+        <Header
+          cart={this.state.cart}
+          handleCartModal={this.handleCartModal}
+          handleAuthModal={this.handleAuthModal}
         />
-        {this.state.isCartOpen && (
+
+        {/* <OrderForm onSubmit={this.onSubmit}/> */}
+
+        <MainSection>
+          <TopBlock>
+            <Title>Products</Title>
+            <Search
+              value={this.state.searchQuery}
+              onChange={this.changeSearchQuery}
+            />
+          </TopBlock>
+          {this.getProductsBySearchQuery().length ? (
+            <ProductsList
+              products={this.getProductsBySearchQuery()}
+              cart={this.state.cart}
+              addToCart={this.addToCart}
+            />
+          ) : (
+            <p>No matches found</p>
+          )}
+        </MainSection>
+
+        {this.state.isCartModalOpen && (
           <Cart
-            cart={cart}
-            handleBackdrop={this.handleBackdrop}
-            handleToogleCart={this.handleToogleCart}
+            cart={this.state.cart}
+            removeFromCart={this.removeFromCart}
+            handleCartModal={this.handleCartModal}
+            handleDecrementProduct={this.handleDecrementProduct}
+            handleIncrementProduct={this.handleIncrementProduct}
+          />
+        )}
+
+        {this.state.isAuthModalOpen && (
+          <AuthForm
+            onSubmit={this.onSubmit}
+            handleAuthModal={this.handleAuthModal}
           />
         )}
       </Container>
