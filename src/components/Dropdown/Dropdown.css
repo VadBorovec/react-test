@@ -20,6 +20,10 @@
       transition: box-shadow 250ms linear;
 }
 
+.Dropdown .Dropdown__toggle:active {
+  box-shadow: 2px 5px 2px 0 rgb(0 0 0 / 0.5);
+}
+
 .Dropdown__menu {
   position: absolute;
   top: 100%;
