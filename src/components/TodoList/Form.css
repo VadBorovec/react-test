@@ -1,0 +1,36 @@
+.Form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 20px auto;
+
+}
+
+.Form__label {
+    margin-bottom: 10px;
+}
+
+.Form__input {
+    padding: 5px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.Form__text {
+    margin: 10px 0;
+}
+
+.Form__btn {
+    padding: 10px;
+    background-color: teal;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.Form__btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

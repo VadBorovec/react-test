@@ -167,6 +167,7 @@ import Counter from './components/Counter';
 import Dropdown from './components/Dropdown';
 import ColorPicker from './components/ColorPicker';
 import TodoList from './components/TodoList';
+import Form from './components/TodoList/Form';
 import initialTodos from './components/TodoList/todos.json';
 
 const colorPickerOptions = [
@@ -182,11 +183,17 @@ class App extends Component {
   state = {
     todos: initialTodos,
   };
+
   deleteTodo = todoId => {
     this.setState(prevState => ({
       todos: prevState.todos.filter(todo => todo.id !== todoId),
     }));
   };
+
+  formSubmitHandler = data => {
+    console.log(data);
+  };
+
   render() {
     const { todos } = this.state;
     const totalTodoCount = todos.length;
@@ -196,7 +203,7 @@ class App extends Component {
     );
     return (
       <>
-        <h1>Состояние компонента</h1>
+        <Form onSubmit={this.formSubmitHandler} />
 
         <Counter initialValue={10} />
         <Dropdown />
