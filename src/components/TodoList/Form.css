@@ -21,7 +21,7 @@
     margin: 10px 0;
 }
 
-.Form__btn {
+.Form .Form__btn {
     padding: 10px;
     background-color: teal;
     color: #fff;
@@ -30,7 +30,7 @@
     cursor: pointer;
 }
 
-.Form__btn:disabled {
+.Form .Form__btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }

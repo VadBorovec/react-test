@@ -7,7 +7,7 @@ class Form extends Component {
     name: '',
     tag: '',
     experience: 'junior',
-    licence: true,
+    licence: false,
   };
 
   nameInputId = shortid.generate();
@@ -42,11 +42,11 @@ class Form extends Component {
 
   render() {
     return (
-      <form class="Form" onSubmit={this.handleSubmit}>
-        <label class="Form__label" htmlFor={this.nameInputId}>
+      <form className="Form" onSubmit={this.handleSubmit}>
+        <label className="Form__label" htmlFor={this.nameInputId}>
           Name
           <input
-            class="Form__input"
+            className="Form__input"
             type="text"
             name="name"
             value={this.state.name}
@@ -54,10 +54,10 @@ class Form extends Component {
             id={this.nameInputId}
           />
         </label>
-        <label class="Form__label" htmlFor={this.tagInputId}>
+        <label className="Form__label" htmlFor={this.tagInputId}>
           Surname
           <input
-            class="Form__input"
+            className="Form__input"
             type="text"
             name="tag"
             value={this.state.tag}
@@ -66,9 +66,9 @@ class Form extends Component {
           />
         </label>
 
-        <p class="Form__text">Your level</p>
+        <p className="Form__text">Your level</p>
 
-        <label class="Form__label">
+        <label className="Form__label">
           <input
             type="radio"
             name="experience"
@@ -79,7 +79,7 @@ class Form extends Component {
           Junior
         </label>
 
-        <label class="Form__label">
+        <label className="Form__label">
           <input
             type="radio"
             name="experience"
@@ -89,7 +89,7 @@ class Form extends Component {
           />
           Middle
         </label>
-        <label class="Form__label">
+        <label className="Form__label">
           <input
             type="radio"
             name="experience"
@@ -100,7 +100,21 @@ class Form extends Component {
           Senior
         </label>
 
-        <button class="Form__btn" type="submit" disabled={!this.state.licence}>
+        <label className="Form__label">
+          <input
+            type="checkbox"
+            name="licence"
+            checked={this.state.licence}
+            onChange={this.handleLicenceChange}
+          />
+          Согласен с условием
+        </label>
+
+        <button
+          className="Form__btn"
+          type="submit"
+          disabled={!this.state.licence}
+        >
           Send
         </button>
       </form>
@@ -109,47 +123,3 @@ class Form extends Component {
 }
 
 export default Form;
-
-//     return (
-//       <form onSubmit={this.handleSubmit}>
-//         <label htmlFor={this.nameInputId}>
-//           Имя
-//           <input
-//             type="text"
-//             name="name"
-//             value={this.state.name}
-//             onChange={this.handleChange}
-//             id={this.nameInputId}
-//           />
-//         </label>
-//         <br />
-//         <label htmlFor={this.tagInputId}>
-//           Прозвище
-//           <input
-//             type="text"
-//             name="tag"
-//             value={this.state.tag}
-//             onChange={this.handleChange}
-//             id={this.tagInputId}
-//           />
-//         </label>
-
-//         <br />
-
-//         <label>
-//           <input
-//             type="checkbox"
-//             name="licence"
-//             checked={this.state.licence}
-//             onChange={this.handleLicenceChange}
-//           />
-//           Согласен с условием
-//         </label>
-
-//         <button type="submit" disabled={!this.state.licence}>
-//           Отправить
-//         </button>
-//       </form>
-//     );
-//   }
-// }
