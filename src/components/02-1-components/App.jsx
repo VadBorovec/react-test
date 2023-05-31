@@ -1,28 +1,16 @@
 import React, { Component } from 'react';
-// import {
-//   Form,
-//   Counter,
-//   Dropdown,
-//   ColorPicker,
-//   TodoList,
-// } from 'components/02-1-components';
+import Container from 'components/02-1-components/ui/Container';
+import Section from 'components/02-1-components//ui/Section';
+
+import Form from 'components/02-1-components/Form';
 import Counter from 'components/02-1-components/Counter';
 import Dropdown from 'components/02-1-components/Dropdown';
 import ColorPicker from 'components/02-1-components/ColorPicker';
 import TodoList from 'components/02-1-components/TodoList';
-import Form from 'components/02-1-components/Form/Form';
-import Container from 'components/02-1-components/ui/Container/Container';
-import initialTodos from 'components/02-1-components/TodoList/todos.json';
-import Section from './ui/Section/Section';
+import TodoEditor from 'components/02-1-components/TodoEditor';
 
-const colorPickerOptions = [
-  { label: 'red', color: '#F44336' },
-  { label: 'green', color: '#4CAF50' },
-  { label: 'blue', color: '#2196F3' },
-  { label: 'grey', color: '#607D8B' },
-  { label: 'pink', color: '#E91E63' },
-  { label: 'indigo', color: '#3F51B5' },
-];
+import colorPickerOptions from 'components/02-1-components/ColorPicker/colorPickerOptions.json';
+import initialTodos from 'components/02-1-components/TodoList/todos.json';
 
 class App extends Component {
   state = {
@@ -32,6 +20,15 @@ class App extends Component {
   deleteTodo = todoId => {
     this.setState(prevState => ({
       todos: prevState.todos.filter(todo => todo.id !== todoId),
+    }));
+  };
+
+  toggleCompleted = todoId => {
+    console.log(todoId);
+    this.setState(({ todos }) => ({
+      todos: todos.map(todo =>
+        todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
+      ),
     }));
   };
 
@@ -53,11 +50,16 @@ class App extends Component {
         <Dropdown />
         <ColorPicker options={colorPickerOptions} />
         <Section title="Todo list">
+          <TodoEditor />
           <div>
             <p>Общее кол-во: {totalTodoCount}</p>
             <p>Кол-во выполненных: {completedTodoCount}</p>
           </div>
-          <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
+          <TodoList
+            todos={todos}
+            onDeleteTodo={this.deleteTodo}
+            onToggleCompleted={this.toggleCompleted}
+          />
         </Section>
       </Container>
     );
