@@ -8,12 +8,13 @@ class TodoEditor extends Component {
   };
 
   handleChange = e => {
-    //   this.setState({ message: e.currentTarget.value });
-    // };
-    // handleSubmit = e => {
-    //   e.preventDefault();
-    //   this.props.onSubmit(this.state.message);
-    //   this.setState({ message: '' });
+    this.setState({ message: e.currentTarget.value });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.onSubmit(this.state.message);
+    this.setState({ message: '' });
   };
 
   render() {

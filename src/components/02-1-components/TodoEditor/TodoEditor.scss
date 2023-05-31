@@ -2,9 +2,7 @@
   width: 600px;
   display: flex;
   flex-direction: column;
-  padding: 16px;
-  border-radius: 4px;
-  margin-bottom: 20px;
+  margin: 16px;
 }
 
 .TodoEditor__textarea {
@@ -21,4 +19,8 @@
 
   resize: none;
   margin-bottom: 12px;
+
+  &:focus {
+    outline: 1px solid teal;
+  }
 }
