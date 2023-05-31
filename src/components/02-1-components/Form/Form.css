@@ -20,17 +20,3 @@
 .Form__text {
     margin: 10px 0;
 }
-
-.Form .Form__btn {
-    padding: 10px;
-    background-color: teal;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.Form .Form__btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}

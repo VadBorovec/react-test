@@ -1,4 +1,5 @@
 import React from 'react';
+import Section from '../ui/Section/Section';
 import Controls from './Controls';
 import Value from './Value';
 import './Counter.css';
@@ -33,13 +34,15 @@ class Counter extends React.Component {
   render() {
     const { value } = this.state;
     return (
-      <div className="Counter">
-        <Value value={value} />
-        <Controls
-          onIncrement={this.handleIncrement}
-          onDecrement={this.handleDecrement}
-        />
-      </div>
+      <Section title="Counter">
+        <div className="Counter">
+          <Value value={value} />
+          <Controls
+            onIncrement={this.handleIncrement}
+            onDecrement={this.handleDecrement}
+          />
+        </div>
+      </Section>
     );
   }
 }
