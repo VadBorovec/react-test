@@ -1,4 +1,6 @@
 import React from 'react';
+// import Section from '../ui/Section/Section';
+import Button from '../ui/Button/Button';
 import './TodoList.css';
 
 const TodoList = ({ todos, onDeleteTodo }) => (
@@ -6,7 +8,7 @@ const TodoList = ({ todos, onDeleteTodo }) => (
     {todos.map(({ id, text }) => (
       <li key={id} className="TodoList__item">
         <p className="TodoList__text">{text}</p>
-        <button onClick={() => onDeleteTodo(id)}>Delete</button>
+        <Button onClick={() => onDeleteTodo(id)}>Delete</Button>
       </li>
     ))}
   </ul>

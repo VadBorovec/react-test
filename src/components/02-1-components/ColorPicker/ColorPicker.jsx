@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Section from '../ui/Section/Section';
 import './ColorPicker.css';
 
 class ColorPicker extends Component {
@@ -26,20 +27,22 @@ class ColorPicker extends Component {
     const { label } = options[activeOptionIdx];
 
     return (
-      <div className="ColorPicker">
-        <h2 className="ColorPicker__title">Color Picker</h2>
-        <p>Выбран цвет: {label}</p>
-        <div>
-          {this.props.options.map(({ label, color }, index) => (
-            <button
-              key={label}
-              className={this.makeOptionClassName(index)}
-              style={{ backgroundColor: color }}
-              onClick={() => this.setActiveIdx(index)}
-            ></button>
-          ))}
+      <Section title="Color Picker">
+        <div className="ColorPicker">
+          <h2 className="ColorPicker__title">Color Picker</h2>
+          <p className="ColorPicker__title">Выбран цвет: {label}</p>
+          <div>
+            {this.props.options.map(({ label, color }, index) => (
+              <button
+                key={label}
+                className={this.makeOptionClassName(index)}
+                style={{ backgroundColor: color }}
+                onClick={() => this.setActiveIdx(index)}
+              ></button>
+            ))}
+          </div>
         </div>
-      </div>
+      </Section>
     );
   }
 }

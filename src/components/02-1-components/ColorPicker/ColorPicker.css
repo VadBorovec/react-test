@@ -1,11 +1,11 @@
 .ColorPicker {
   width: 400px;
-  padding: 10px;
-  border: 1px solid black;
+  text-align: center;
 }
 
 .ColorPicker__title {
   line-height: 1.3;
+  margin-bottom: 10px;
 }
 
 .ColorPicker__option {

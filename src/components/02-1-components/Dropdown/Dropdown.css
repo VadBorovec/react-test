@@ -1,27 +1,8 @@
 .Dropdown {
   position: relative;
+  overflow: visible;
   width: 400px;
-  padding: 20px;
-  border: 1px solid black;
-}
-
-.Dropdown .Dropdown__toggle {
-    border: none;
-      padding: 10px 15px;
-      background-color: teal;
-      color: #fff;
-      font-weight: 500;
-      margin-left: 5px;
-      margin-right: 5px;
-      font-family: inherit;
-      cursor: pointer;
-      outline: none;
-      box-shadow: 1px 2px 2px 0 rgb(0 0 0 / 0.5);
-      transition: box-shadow 250ms linear;
-}
-
-.Dropdown .Dropdown__toggle:active {
-  box-shadow: 2px 5px 2px 0 rgb(0 0 0 / 0.5);
+  text-align: center;
 }
 
 .Dropdown__menu {
@@ -30,7 +11,10 @@
   left: 0;
   width: 100%;
   padding: 20px;
+    margin: 10px;
   text-align: center;
   background-color: teal;
   color: white;
+  border-radius: 8px;
+  z-index: 1000;
 }

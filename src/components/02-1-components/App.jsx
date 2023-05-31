@@ -13,6 +13,7 @@ import TodoList from 'components/02-1-components/TodoList';
 import Form from 'components/02-1-components/Form/Form';
 import Container from 'components/02-1-components/ui/Container/Container';
 import initialTodos from 'components/02-1-components/TodoList/todos.json';
+import Section from './ui/Section/Section';
 
 const colorPickerOptions = [
   { label: 'red', color: '#F44336' },
@@ -51,11 +52,13 @@ class App extends Component {
         <Counter initialValue={10} />
         <Dropdown />
         <ColorPicker options={colorPickerOptions} />
-        <div>
-          <p>Общее кол-во: {totalTodoCount}</p>
-          <p>Кол-во выполненных: {completedTodoCount}</p>
-        </div>
-        <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
+        <Section title="Todo list">
+          <div>
+            <p>Общее кол-во: {totalTodoCount}</p>
+            <p>Кол-во выполненных: {completedTodoCount}</p>
+          </div>
+          <TodoList todos={todos} onDeleteTodo={this.deleteTodo} />
+        </Section>
       </Container>
     );
   }
