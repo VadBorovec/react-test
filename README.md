@@ -1,8 +1,10 @@
       # Todo App
 
-The Todo App is a simple application that allows you to manage your tasks or todos. You can add new todos, mark them as completed, delete them, and filter the todo list based on a search query.
+The Todo App is a simple application that allows you to manage your tasks or
+todos. You can add new todos, mark them as completed, delete them, and filter
+the todo list based on a search query.
 
-![Todo App Screenshot](todo-app-screenshot.png)
+![Todo App Screenshot](./src/assets/todoScreenshot.png)
 
 ## Features
 
@@ -35,11 +37,13 @@ To run the Todo App locally, follow these steps:
 - Click the checkbox next to a todo to mark it as completed or uncompleted.
 - Click the "Delete" button to remove a todo from the list.
 - Use the filter input to search for specific todos based on their text.
-- View the total number of todos and the number of completed todos in the statistics section.
+- View the total number of todos and the number of completed todos in the
+  statistics section.
 
 ## Contributing
 
-Contributions are welcome! If you have any suggestions, bug reports, or feature requests, please open an issue or submit a pull request.
+Contributions are welcome! If you have any suggestions, bug reports, or feature
+requests, please open an issue or submit a pull request.
 
 ## License
 
