@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Section from '../ui/Section/Section';
 import Button from '../ui/Button/Button';
-import './Dropdown.css';
+import './Dropdown.scss';
 
 class Dropdown extends Component {
   state = {
@@ -36,7 +36,7 @@ class Dropdown extends Component {
           >
             {visible ? 'Hide' : 'Show'}
           </Button>
-          {visible && <div className="Dropdown__menu">Выпадающее меню</div>}
+          {visible && <div className="Dropdown__menu">Drop-down menu</div>}
         </div>
       </Section>
     );

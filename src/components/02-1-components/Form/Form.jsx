@@ -110,7 +110,7 @@ class Form extends Component {
               checked={this.state.licence}
               onChange={this.handleLicenceChange}
             />
-            Согласен с условием
+            Agree with terms
           </label>
 
           <Button

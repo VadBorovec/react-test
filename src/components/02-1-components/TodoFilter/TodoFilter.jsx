@@ -1,12 +1,11 @@
-import React from 'react';
 import './TodoFilter.scss';
 
-const Filter = ({ value, onChange }) => (
-  <div className="Todofilter">
-    <label className="Todofilter__label">
+const TodoFilter = ({ value, onChange }) => (
+  <div className="TodoFilter">
+    <label className="TodoFilter__label">
       Filter
       <input
-        className="Todofilter__textarea"
+        className="TodoFilter__textarea"
         type="text"
         value={value}
         onChange={onChange}
@@ -15,4 +14,4 @@ const Filter = ({ value, onChange }) => (
   </div>
 );
 
-export default Filter;
+export default TodoFilter;

@@ -1,10 +1,9 @@
-import React from 'react';
 import './TodoStats.scss';
 
 const TodoStats = ({ totalTodoCount, completedTodoCount }) => (
-  <div className="Todostats__wrap">
-    <p className="Todostats__text">Общее кол-во: {totalTodoCount}</p>
-    <p className="Todostats__text">Кол-во выполненных: {completedTodoCount}</p>
+  <div className="TodoStats__wrap">
+    <p className="TodoStats__text">Total amount: {totalTodoCount}</p>
+    <p className="TodoStats__text">Number of completed: {completedTodoCount}</p>
   </div>
 );
 

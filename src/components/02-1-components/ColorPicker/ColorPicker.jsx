@@ -28,7 +28,7 @@ class ColorPicker extends Component {
       <Section title="Color Picker">
         <div className="ColorPicker">
           <h2 className="ColorPicker__title">Color Picker</h2>
-          <p className="ColorPicker__title">Выбран цвет: {label}</p>
+          <p className="ColorPicker__title">Selected color: {label}</p>
           <div>
             {this.props.options.map(({ label, color }, index) => (
               <button

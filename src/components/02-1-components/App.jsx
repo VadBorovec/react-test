@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 
-import Container from 'components/02-1-components/ui/Container';
-import Section from 'components/02-1-components//ui/Section';
+import Container from './ui/Container';
+import Section from './ui/Section';
 
-import Form from 'components/02-1-components/Form';
-import Counter from 'components/02-1-components/Counter';
-import Dropdown from 'components/02-1-components/Dropdown';
-import ColorPicker from 'components/02-1-components/ColorPicker';
-import TodoList from 'components/02-1-components/TodoList';
-import TodoEditor from 'components/02-1-components/TodoEditor';
-import TodoFilter from 'components/02-1-components/TodoFilter';
-import TodoStats from 'components/02-1-components/TodoStats';
+import Form from './Form';
+import Counter from './Counter';
+import Dropdown from './Dropdown';
+import ColorPicker from './ColorPicker';
+import TodoList from './TodoList';
+import TodoEditor from './TodoEditor';
+import TodoFilter from './TodoFilter';
+import TodoStats from './TodoStats';
 
-import colorPickerOptions from 'components/02-1-components/ColorPicker/colorPickerOptions.json';
-import initialTodos from 'components/02-1-components/TodoList/todos.json';
+import colorPickerOptions from './ColorPicker/colorPickerOptions.json';
+import initialTodos from './TodoList/todos.json';
 
 class App extends Component {
   state = {
@@ -23,6 +23,13 @@ class App extends Component {
   };
 
   addTodo = text => {
+    if (text.trim() === '') {
+      window.alert(
+        'Please enter your message. An empty field cannot be saved.'
+      );
+      return;
+    }
+
     console.log(text);
     const todo = {
       id: shortid.generate(),

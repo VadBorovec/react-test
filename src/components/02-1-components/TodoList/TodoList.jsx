@@ -1,6 +1,4 @@
-import React from 'react';
 import classNames from 'classnames';
-// import Section from '../ui/Section/Section';
 import Button from '../ui/Button/Button';
 import './TodoList.scss';
 
