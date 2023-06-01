@@ -1,0 +1,26 @@
+.Form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 20px auto;
+}
+
+.Form__label {
+  margin-bottom: 10px;
+}
+
+.Form__input {
+  padding: 5px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+  &:focus {
+    outline: 1px solid teal;
+  }
+}
+
+.Form__text {
+  color: red;
+  margin: 10px 0;
+}

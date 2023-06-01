@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
 import Section from '../ui/Section';
-import Button from '../ui/Button/Button';
+import Button from '../ui/Button';
 import './Form.scss';
 
 class Form extends Component {
