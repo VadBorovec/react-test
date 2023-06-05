@@ -3,6 +3,7 @@ import shortid from 'shortid';
 
 import Container from './ui/Container';
 import Section from './ui/Section';
+import Button from './ui/Button';
 
 import TodoList from './TodoList';
 import TodoEditor from './TodoEditor';
@@ -10,11 +11,13 @@ import TodoFilter from './TodoFilter';
 import TodoStats from './TodoStats';
 
 import Modal from './Modal';
+import Clock from './Clock';
+
 // import IconButton from './IconButton';
 // import { ReactComponent as AddIcon } from './icons/add.svg';
 // import Tabs from './components/Tabs';
+
 // import tabs from './tabs.json';
-// import Clock from './components/Clock';
 import initialTodos from './TodoList/todos.json';
 
 class App extends Component {
@@ -41,7 +44,7 @@ class App extends Component {
     const prevTodos = prevState.todos;
 
     if (nextTodos !== prevTodos) {
-      console.log('Обновилось поле todos, записываю todos в хранилище');
+      // console.log('Обновилось поле todos, записываю todos в хранилище');
       localStorage.setItem('todos', JSON.stringify(nextTodos));
     }
   }
@@ -58,7 +61,7 @@ class App extends Component {
       return;
     }
 
-    console.log(text);
+    // console.log(text);
     const todo = {
       id: shortid.generate(),
       text,
@@ -76,7 +79,7 @@ class App extends Component {
   };
 
   toggleCompleted = todoId => {
-    console.log(todoId);
+    // console.log(todoId);
     this.setState(({ todos }) => ({
       todos: todos.map(todo =>
         todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
@@ -122,9 +125,11 @@ class App extends Component {
 
     return (
       <Container>
-        <button type="button" onClick={this.toggleModal}>
-          open modal
-        </button>
+        <Section title="Modal">
+          <Button type="button" onClick={this.toggleModal}>
+            open modal
+          </Button>
+        </Section>
         {showModal && (
           <Modal onClose={this.toggleModal}>
             <h1>Title Modal</h1>
@@ -134,11 +139,15 @@ class App extends Component {
               tempore soluta, laudantium velit, cupiditate excepturi labore
               cumque quae debitis rerum blanditiis accusamus?
             </p>
-            <button type="button" onClick={this.toggleModal}>
+            <Button type="button" onClick={this.toggleModal}>
               close modal
-            </button>
+            </Button>
           </Modal>
         )}
+        <Section title="Clock">
+          <Clock />
+        </Section>
+
         <Section title="Todo list">
           <TodoEditor onSubmit={this.addTodo} />
           <TodoFilter value={filter} onChange={this.changeFilter} />
