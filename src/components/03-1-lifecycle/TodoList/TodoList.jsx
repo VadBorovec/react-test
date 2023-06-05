@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import Button from '../ui/Button/Button';
+import Todo from '../Todo';
 import './TodoList.scss';
 
 const TodoList = ({ todos, onDeleteTodo, onToggleCompleted }) => (
@@ -11,14 +11,12 @@ const TodoList = ({ todos, onDeleteTodo, onToggleCompleted }) => (
           'TodoList__item--completed': completed,
         })}
       >
-        <input
-          type="checkbox"
-          className="TodoList__checkbox"
-          checked={completed}
-          onChange={() => onToggleCompleted(id)}
+        <Todo
+          text={text}
+          completed={completed}
+          onToggleCompleted={() => onToggleCompleted(id)}
+          onDeleteTodo={() => onDeleteTodo(id)}
         />
-        <p className="TodoList__text">{text}</p>
-        <Button onClick={() => onDeleteTodo(id)}>Delete</Button>
       </li>
     ))}
   </ul>

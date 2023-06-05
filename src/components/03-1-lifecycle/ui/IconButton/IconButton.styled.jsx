@@ -1,19 +1,19 @@
 import styled from '@emotion/styled';
 
-const Button = styled.button`
-  /* display: flex; */
-  /* width: 100%; */
-  /* justify-content: center; */
+export const IconBtn = styled.button`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 600;
 
   padding: 0.6rem 1rem;
   margin: 0 0.5rem;
   background-color: teal;
-  color: #fff;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 600;
+  fill: #fff;
 
   cursor: pointer;
   border: none;
@@ -35,5 +35,3 @@ const Button = styled.button`
     cursor: not-allowed;
   }
 `;
-
-export default Button;

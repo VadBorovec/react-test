@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Button from '../ui/Button/Button';
+import Button from '../ui/Button/Button.styled';
 import './TodoEditor.scss';
 
 class TodoEditor extends Component {

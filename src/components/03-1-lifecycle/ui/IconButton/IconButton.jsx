@@ -1,11 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import './IconButton.scss';
+import { IconBtn } from './IconButton.styled';
 
 const IconButton = ({ children, onClick, ...allyProps }) => (
-  <button type="button" className="IconButton" onClick={onClick} {...allyProps}>
+  <IconBtn type="button" onClick={onClick} {...allyProps}>
     {children}
-  </button>
+  </IconBtn>
 );
 
 IconButton.defaultProps = {
@@ -16,7 +15,7 @@ IconButton.defaultProps = {
 IconButton.propTypes = {
   onClick: PropTypes.func,
   children: PropTypes.node,
-  'aria-label': PropTypes.string.isRequired,
+  // 'aria-label': PropTypes.string.isRequired,
 };
 
 export default IconButton;

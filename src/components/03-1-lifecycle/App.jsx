@@ -12,12 +12,12 @@ import TodoStats from './TodoStats';
 
 import Modal from './Modal';
 import Clock from './Clock';
+import Tabs from './Tabs';
+import IconButton from './ui/IconButton';
 
-// import IconButton from './IconButton';
-// import { ReactComponent as AddIcon } from './icons/add.svg';
-// import Tabs from './components/Tabs';
+import { ReactComponent as AddIcon } from './icons/add.svg';
 
-// import tabs from './tabs.json';
+import tabs from './Tabs/tabs.json';
 import initialTodos from './TodoList/todos.json';
 
 class App extends Component {
@@ -125,25 +125,19 @@ class App extends Component {
 
     return (
       <Container>
+        <IconButton onClick={this.toggleModal}>
+          <AddIcon width="40" height="40" />
+        </IconButton>
         <Section title="Modal">
           <Button type="button" onClick={this.toggleModal}>
             open modal
           </Button>
         </Section>
-        {showModal && (
-          <Modal onClose={this.toggleModal}>
-            <h1>Title Modal</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-              nulla recusandae nostrum ipsam provident! Nulla quas corporis
-              tempore soluta, laudantium velit, cupiditate excepturi labore
-              cumque quae debitis rerum blanditiis accusamus?
-            </p>
-            <Button type="button" onClick={this.toggleModal}>
-              close modal
-            </Button>
-          </Modal>
-        )}
+
+        <Section title="Tabs">
+          <Tabs items={tabs} />
+        </Section>
+
         <Section title="Clock">
           <Clock />
         </Section>
@@ -162,6 +156,21 @@ class App extends Component {
             onToggleCompleted={this.toggleCompleted}
           />
         </Section>
+
+        {showModal && (
+          <Modal onClose={this.toggleModal}>
+            <h1>Title Modal</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
+              nulla recusandae nostrum ipsam provident! Nulla quas corporis
+              tempore soluta, laudantium velit, cupiditate excepturi labore
+              cumque quae debitis rerum blanditiis accusamus?
+            </p>
+            <Button type="button" onClick={this.toggleModal}>
+              close modal
+            </Button>
+          </Modal>
+        )}
       </Container>
     );
   }
