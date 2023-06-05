@@ -47,11 +47,11 @@ class App extends Component {
       // console.log('Обновилось поле todos, записываю todos в хранилище');
       localStorage.setItem('todos', JSON.stringify(nextTodos));
     }
-  }
 
-  //   if (nextTodos.length > prevTodos.length && prevTodos.length !== 0) {
-  //     this.toggleModal();
-  //   }
+    // if (nextTodos.length > prevTodos.length && prevTodos.length !== 0) {
+    //   this.toggleModal();
+    // }
+  }
 
   addTodo = text => {
     if (text.trim() === '') {
@@ -70,6 +70,8 @@ class App extends Component {
     this.setState(({ todos }) => ({
       todos: [todo, ...todos],
     }));
+
+    this.toggleModal();
   };
 
   deleteTodo = todoId => {
@@ -125,25 +127,12 @@ class App extends Component {
 
     return (
       <Container>
-        <IconButton onClick={this.toggleModal}>
-          <AddIcon width="40" height="40" />
-        </IconButton>
-        <Section title="Modal">
-          <Button type="button" onClick={this.toggleModal}>
-            open modal
-          </Button>
-        </Section>
-
-        <Section title="Tabs">
-          <Tabs items={tabs} />
-        </Section>
-
-        <Section title="Clock">
-          <Clock />
-        </Section>
-
         <Section title="Todo list">
-          <TodoEditor onSubmit={this.addTodo} />
+          <IconButton onClick={this.toggleModal} aria-label="add todo">
+            <AddIcon width="40" height="40" />
+          </IconButton>
+          <br />
+
           <TodoFilter value={filter} onChange={this.changeFilter} />
           <TodoStats
             totalTodoCount={totalTodoCount}
@@ -159,18 +148,28 @@ class App extends Component {
 
         {showModal && (
           <Modal onClose={this.toggleModal}>
-            <h1>Title Modal</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-              nulla recusandae nostrum ipsam provident! Nulla quas corporis
-              tempore soluta, laudantium velit, cupiditate excepturi labore
-              cumque quae debitis rerum blanditiis accusamus?
-            </p>
             <Button type="button" onClick={this.toggleModal}>
-              close modal
+              x
             </Button>
+            <Section title="Todo Editor">
+              <TodoEditor onSubmit={this.addTodo} />
+            </Section>
           </Modal>
         )}
+
+        <Section title="Modal">
+          <Button type="button" onClick={this.toggleModal}>
+            open modal
+          </Button>
+        </Section>
+
+        <Section title="Tabs">
+          <Tabs items={tabs} />
+        </Section>
+
+        <Section title="Clock">
+          <Clock />
+        </Section>
       </Container>
     );
   }

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import Button from '../ui/Button';
 
 export default class Tabs extends PureComponent {
   state = {
@@ -24,13 +25,13 @@ export default class Tabs extends PureComponent {
       <>
         <div>
           {items.map((item, idx) => (
-            <button
+            <Button
               type="button"
               key={item.label}
               onClick={() => this.setActiveTabIdx(idx)}
             >
               {item.label}
-            </button>
+            </Button>
           ))}
         </div>
 
