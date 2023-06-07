@@ -5,17 +5,85 @@ import { Component } from 'react';
 // import pokemonAPI from './services/pokemon-api';
 
 export default class PokemonInfo extends Component {
+  state = {
+    pokemon: null,
+    loading: false,
+    // error: null,
+    // status: Status.IDLE,
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    const prevName = prevProps.pokemonName;
+    const nextName = this.props.pokemonName;
+
+    if (prevName !== nextName) {
+      // this.setState({ status: Status.PENDING });
+
+      this.setState({ loading: true });
+
+      setTimeout(() => {
+        fetch(`https://pokeapi.co/api/v2/pokemon/${nextName}`)
+          .then(res => {
+            if (res.ok) {
+              return res.json();
+            }
+            return Promise.reject(
+              new Error(`There is no pokemon with name ${nextName}`)
+            );
+          })
+          .then(pokemon => this.setState({ pokemon }))
+          .catch(error => this.setState({ error }))
+          .finally(() => this.setState({ loading: false }));
+      }, 3000);
+
+      // setTimeout(() => {
+      //   pokemonAPI
+      //     .fetchPokemon(nextName)
+      //     .then(pokemon => this.setState({ pokemon, status: Status.RESOLVED }))
+      //     .catch(error => this.setState({ error, status: Status.REJECTED }));
+      // }, 3000);
+    }
+  }
+
   render() {
-    return <div>Pokmon Info</div>;
+    const { pokemon, loading, error } = this.state;
+    const { pokemonName } = this.props;
+
+    return (
+      <div>
+        <h1>Pokemon info</h1>
+        {error && <div>{error.message}</div>}
+        {loading && <div>Loading...</div>}
+        {!pokemonName && <div>Please, enter pokemon name</div>}
+        {pokemon && (
+          <div>
+            <img
+              src={pokemon.sprites.other['official-artwork'].front_default}
+              width="240"
+              height="100"
+              alt={pokemon.name}
+            />
+            <h2>{pokemon.name}</h2>
+            <ul>
+              {pokemon.stats.map(entry => (
+                <li key={entry.stat.name}>
+                  {entry.stat.name}: {entry.base_stat}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    );
   }
 }
 
-// const Status = {
+// const Status ={
 //   IDLE: 'idle',
 //   PENDING: 'pending',
 //   RESOLVED: 'resolved',
 //   REJECTED: 'rejected',
-// };
+// }
 
 // export default class PokemonInfo extends Component {
 //   state = {
