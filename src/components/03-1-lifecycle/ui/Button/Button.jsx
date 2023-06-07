@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 
 const Button = styled.button`
-  /* display: flex; */
-  /* width: 100%; */
-  /* justify-content: center; */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
   font-family: inherit;
 
