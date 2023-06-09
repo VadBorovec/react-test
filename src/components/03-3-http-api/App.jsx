@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { GlobalStyle } from './GlobalStyle';
 import { Layout } from './Layout';
 import { MaterialEditorForm } from './MaterialEditorForm';
-// import { MaterialList } from './MaterialList';
+import { MaterialList } from './MaterialList';
 import * as API from './services/api';
 
 export class App extends Component {
@@ -82,6 +82,11 @@ export class App extends Component {
         <GlobalStyle />
         {isLoading && <div>Loading...</div>}
         <MaterialEditorForm onSubmit={this.addMaterial} />
+        <MaterialList
+          items={materials}
+          // onDelete={this.deleteMaterial}
+          // onUpdate={this.updateMaterial}
+        />
 
         {/* {error && (
           <p>
