@@ -1,6 +1,8 @@
 import { ImSpinner } from 'react-icons/im';
 import PokemonDataView from './PokemonDataView';
-import pendingImage from './pending.png';
+import pendingImage from './images/pending.png';
+
+import 'components/03-2-http-api/styles/index.css';
 
 const styles = {
   spinner: {
@@ -28,7 +30,7 @@ export default function PokemonPendingView({ pokemonName }) {
     <div role="alert">
       <div style={styles.spinner}>
         <ImSpinner size="32" className="icon-spin" />
-        Загружаем...
+        Loading...
       </div>
       <PokemonDataView pokemon={pokemon} />
     </div>
