@@ -15,8 +15,7 @@ export default class PokemonInfo extends Component {
   state = {
     pokemon: null,
     error: null,
-    status: 'idle',
-    // status: Status.IDLE,
+    status: Status.IDLE,
   };
 
   componentDidUpdate(prevProps, prevState) {
@@ -24,15 +23,13 @@ export default class PokemonInfo extends Component {
     const nextName = this.props.pokemonName;
 
     if (prevName !== nextName) {
-      // this.setState({ status: Status.PENDING });
-
-      this.setState({ status: 'pending' });
+      this.setState({ status: Status.PENDING });
 
       setTimeout(() => {
         pokemonAPI
           .fetchPokemon(nextName)
-          .then(pokemon => this.setState({ pokemon, status: 'resolved' }))
-          .catch(error => this.setState({ error, status: 'rejected' }));
+          .then(pokemon => this.setState({ pokemon, status: Status.RESOLVED }))
+          .catch(error => this.setState({ error, status: Status.REJECTED }));
       }, 3000);
     }
   }
