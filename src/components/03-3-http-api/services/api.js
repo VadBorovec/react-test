@@ -8,8 +8,6 @@ export const addMaterial = async values => {
   return response.data;
 };
 
-// export const getMaterials = async
-
 export const getMaterials = async () => {
   const response = await axios.get('/materials');
   return response.data;
