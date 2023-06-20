@@ -15,7 +15,7 @@
 // );
 
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { AppIndex } from './App';
 import AuthProvider from './components/04-1-hooks/contexts/auth/Provider';
@@ -23,12 +23,23 @@ import AuthProvider from './components/04-1-hooks/contexts/auth/Provider';
 import './index.css';
 import 'react-toastify/dist/ReactToastify.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
         <AppIndex />
       </AuthProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById('root')
 );
+
+// ReactDOM.createRoot(document.getElementById('root')).render(
+//   <React.StrictMode>
+//     <BrowserRouter>
+//       <AuthProvider>
+//         <AppIndex />
+//       </AuthProvider>
+//     </BrowserRouter>
+//   </React.StrictMode>
+// );
