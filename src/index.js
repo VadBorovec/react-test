@@ -19,6 +19,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { AppIndex } from './App';
 import AuthProvider from './components/04-1-hooks/contexts/auth/Provider';
+import { UserProvider } from './components/04-2-hooks/components/MyContext/userContext';
 // import 'modern-normalize/modern-normalize.css';
 import './index.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -27,7 +28,9 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <AppIndex />
+        <UserProvider>
+          <AppIndex />
+        </UserProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
