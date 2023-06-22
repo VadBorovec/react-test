@@ -27,9 +27,10 @@ export default function PokemonInfo({ pokemonName }) {
     pokemonAPI
       .fetchPokemon(pokemonName)
       .then(pokemon => {
-        // Порядок важен!!!! Сначала кладем данные, потом статус.
+        // Порядок важен (в асинхронном коде)!!!! Сначала кладем данные, потом статус.
         setPokemon(pokemon);
         setStatus(Status.RESOLVED);
+        // setPokemon(pokemon); // в асинхронном коде важен порядок
       })
       .catch(error => {
         setError(error);
