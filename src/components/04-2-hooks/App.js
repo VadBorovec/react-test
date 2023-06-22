@@ -3,7 +3,7 @@ import AppBar from './components/AppBar/AppBar';
 import SkipEffectOnFirstRender from './components/SkipEffectOnFirstRender';
 import { Counter, Counter1, Counter2 } from './components/Counter/Counter';
 import PokemonView from './views/PokemonView';
-import Friends from './components/Friends';
+import { Friends } from './components/Friends';
 
 import { UserMenu } from './components/MyContext/UserMenu';
 
@@ -40,6 +40,7 @@ export default function App() {
       <br />
       {/* <Route path="/notes"> */}
       <Friends />
+      <br />
       {/* </Route> */}
       {/* </Switch> */}
     </div>
