@@ -1,4 +1,5 @@
 import { useUser } from './userContext';
+import Button from 'styles/ui/Button/Button';
 
 export const UserMenu = () => {
   const { isLoggedIn, username, logIn, logOut } = useUser();
@@ -7,9 +8,9 @@ export const UserMenu = () => {
     <div>
       {isLoggedIn && <p>{username}</p>}
       {isLoggedIn ? (
-        <button onClick={logOut}>Log out</button>
+        <Button onClick={logOut}>Log out</Button>
       ) : (
-        <button onClick={logIn}>Log in</button>
+        <Button onClick={logIn}>Log in</Button>
       )}
     </div>
   );

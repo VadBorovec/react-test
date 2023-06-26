@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Button, Section } from 'styles/ui';
 
 const styles = {
   code: {
@@ -24,12 +25,14 @@ export default function SkipEffectOnFirstRender() {
   });
 
   return (
-    <div>
-      <button onClick={() => setCount(c => c + 1)}>{count}</button>
+    <Section title="Skip first render">
+      <Button onClick={() => setCount(c => c + 1)}>{count}</Button>
+      <br />
+      <br />
       <p>
         <code style={styles.code}>useEffect</code> этого компонента не
         выполняется на первом рендере
       </p>
-    </div>
+    </Section>
   );
 }

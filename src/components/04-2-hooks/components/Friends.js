@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { Button, Section } from 'styles/ui';
 
 const initalFriends = [
   'Kolby Thompson',
@@ -118,8 +119,8 @@ export function Friends() {
   // );
 
   return (
-    <div>
-      <button onClick={() => setCount(c => c + 1)}>{count}</button>
+    <Section title="friends">
+      <Button onClick={() => setCount(c => c + 1)}>{count}</Button>
       <hr />
       <input onChange={e => setFilter(e.target.value)} value={filter} />
       <ul>
@@ -127,6 +128,6 @@ export function Friends() {
           <li key={idx}>{friend}</li>
         ))}
       </ul>
-    </div>
+    </Section>
   );
 }

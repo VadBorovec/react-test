@@ -3,6 +3,7 @@ import Navigation from '../Navigation/Navigation';
 import UserMenu from '../UserMenu/UserMenu';
 import authContext from '../../contexts/auth/context.js';
 import styles from './Appbar.module.css';
+import Button from 'styles/ui/Button/Button';
 
 export default function Appbar() {
   const { isLoggedIn, user, onLogIn, onLogOut } = useContext(authContext);
@@ -14,9 +15,9 @@ export default function Appbar() {
       {isLoggedIn ? (
         <UserMenu onLogOut={onLogOut} user={user} />
       ) : (
-        <button type="button" onClick={onLogIn}>
+        <Button type="button" onClick={onLogIn}>
           Войти
-        </button>
+        </Button>
       )}
     </header>
   );

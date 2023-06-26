@@ -1,6 +1,7 @@
 // import React from 'react';
 // import ReactDOM from 'react-dom/client';
 // import { AppIndex } from './App';
+
 // import { Global, ThemeProvider } from '@emotion/react';
 // import './index.css';
 // import { GlobalStyles, theme } from 'styles';
@@ -13,36 +14,21 @@
 //     </ThemeProvider>
 //   </React.StrictMode>
 // );
-
+// !========================04-1 / 04-2
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 import { AppIndex } from './App';
-import AuthProvider from './components/04-1-hooks/contexts/auth/Provider';
-import { UserProvider } from './components/04-2-hooks/components/MyContext/userContext';
-// import 'modern-normalize/modern-normalize.css';
+
+import { Global, ThemeProvider } from '@emotion/react';
 import './index.css';
-import 'react-toastify/dist/ReactToastify.css';
+import { GlobalStyles, theme } from 'styles';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <AuthProvider>
-        <UserProvider>
-          <AppIndex />
-        </UserProvider>
-      </AuthProvider>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <Global styles={GlobalStyles} />
+      <AppIndex />
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//   <React.StrictMode>
-//     <BrowserRouter>
-//       <AuthProvider>
-//         <AppIndex />
-//       </AuthProvider>
-//     </BrowserRouter>
-//   </React.StrictMode>
-// );

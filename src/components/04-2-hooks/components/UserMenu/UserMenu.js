@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './UserMenu.module.css';
+import Button from 'styles/ui/Button/Button';
 
 export default function UserMenu({ onLogOut, user }) {
   return (
@@ -12,9 +13,9 @@ export default function UserMenu({ onLogOut, user }) {
         className={styles.avatar}
       />
       <p className={styles.name}>Добро пожаловать, {user.name}</p>
-      <button type="button" onClick={onLogOut}>
+      <Button type="button" onClick={onLogOut}>
         Выйти
-      </button>
+      </Button>
     </div>
   );
 }
