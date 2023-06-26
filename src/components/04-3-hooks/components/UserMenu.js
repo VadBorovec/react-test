@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import ctx from '../context/authContext';
 
+import { Button } from 'styles/ui';
+
 const styles = {
   container: {
     display: 'flex',
@@ -20,14 +22,14 @@ export default function UserMenu() {
       {user ? (
         <>
           <p style={styles.tag}>{user}</p>
-          <button type="button" onClick={logOut}>
-            Выйти
-          </button>
+          <Button type="button" onClick={logOut}>
+            Log out
+          </Button>
         </>
       ) : (
-        <button type="button" onClick={logIn}>
-          Войти
-        </button>
+        <Button type="button" onClick={logIn}>
+          Log in
+        </Button>
       )}
     </div>
   );
