@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Button } from 'styles/ui';
 
 const styles = {
   clockface: {
@@ -32,9 +33,9 @@ export default function Clock() {
   return (
     <>
       <p style={styles.clockface}>Текущее время: {time.toLocaleTimeString()}</p>
-      <button type="button" onClick={stop}>
+      <Button type="button" onClick={stop}>
         Stop
-      </button>
+      </Button>
     </>
   );
 }

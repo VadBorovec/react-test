@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from 'styles/ui';
 
 export default function NewsSearchForm({ onSubmit }) {
   const [query, setQuery] = useState('');
@@ -14,7 +15,7 @@ export default function NewsSearchForm({ onSubmit }) {
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" value={query} onChange={handleChange} />
-      <button type="submit">Искать</button>
+      <Button type="submit">Search</Button>
     </form>
   );
 }
