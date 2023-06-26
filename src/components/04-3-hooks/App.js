@@ -1,10 +1,15 @@
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import AppBar from './components/AppBar/AppBar';
-import SignupForm from './components/SignupForm/SignupForm';
-import ColorPicker from './components/ColorPicker/ColorPicker';
-import Counter from './components/Counter/Counter';
-import Clock from './components/Clock/Clock';
-import PokemonView from './views/PokemonView';
+// import Container from './components/Container';
+import AppBar from './components/AppBar';
+import Counter from './components/Counter';
+import SignupForm from './components/SignupForm';
+import Clock from './components/Clock';
+import News from './components/News';
+import ColorPicker from './components/ColorPicker';
+import UserMenu from './components/UserMenu';
+
+import { Container } from 'styles/ui';
 
 const colorPickerOptions = [
   { label: 'red', color: '#F44336' },
@@ -15,20 +20,16 @@ const colorPickerOptions = [
   { label: 'indigo', color: '#3F51B5' },
 ];
 
-const containerStyles = {
-  maxWidth: 1170,
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  paddingLeft: 15,
-  paddingRight: 15,
-};
-
 export default function App1() {
   return (
-    <div style={containerStyles}>
+    <Container>
       <AppBar />
 
       <Switch>
+        <Route path="/counter">
+          <Counter />
+        </Route>
+
         <Route path="/signup">
           <SignupForm />
         </Route>
@@ -37,18 +38,18 @@ export default function App1() {
           <ColorPicker options={colorPickerOptions} />
         </Route>
 
-        <Route path="/counter">
-          <Counter />
-        </Route>
-
         <Route path="/clock">
           <Clock />
         </Route>
 
-        <Route path="/pokemon">
-          <PokemonView />
+        <Route path="/news">
+          <News />
+        </Route>
+
+        <Route path="/context">
+          <UserMenu />
         </Route>
       </Switch>
-    </div>
+    </Container>
   );
 }

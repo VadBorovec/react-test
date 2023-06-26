@@ -15,34 +15,29 @@ const containerStyles = {
   paddingRight: 15,
 };
 
-export default function App() {
+export default function App1() {
   return (
     <div style={containerStyles}>
       <UserMenu />
-      {/* <AppBar />
-
+      <AppBar />
       <Switch>
-        <Route path="/skip-first-render"> */}
-      <SkipEffectOnFirstRender />
-      {/* </Route> */}
-      <br />
-      {/* <Route path="/pokemon"> */}
-      <PokemonView />
-      {/* </Route> */}
-      <br />
-      {/* <Route path="/counter"> */}
-      <Counter />
-      <br />
-      <Counter1 />
-      <br />
-      <Counter2 />
-      {/* </Route> */}
-      <br />
-      {/* <Route path="/notes"> */}
-      <Friends />
-      <br />
-      {/* </Route> */}
-      {/* </Switch> */}
+        <Route path="/skip-first-render">
+          <SkipEffectOnFirstRender />
+        </Route>
+        <Route path="/pokemon">
+          <PokemonView />
+        </Route>
+        <Route path="/counter">
+          <Counter />
+          <br />
+          <Counter1 />
+          <br />
+          <Counter2 />
+        </Route>
+        <Route path="/notes">
+          <Friends />
+        </Route>
+      </Switch>
     </div>
   );
 }

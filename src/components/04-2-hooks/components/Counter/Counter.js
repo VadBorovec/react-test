@@ -1,5 +1,6 @@
 import { useState, useReducer } from 'react';
 import styles from './Counter.module.css';
+import Button from 'styles/ui/Button/Button';
 
 // !=============useState========
 
@@ -9,21 +10,21 @@ export function Counter() {
   return (
     <div className={styles.container}>
       <p className={styles.value}>{count}</p>
-      <button
+      <Button
         className={styles.btn}
         type="button"
         onClick={() => setCount(count + 1)}
       >
         Увеличить
-      </button>
+      </Button>
 
-      <button
+      <Button
         className={styles.btn}
         type="button"
         onClick={() => setCount(count - 1)}
       >
         Уменьшить
-      </button>
+      </Button>
     </div>
   );
 }
@@ -49,21 +50,21 @@ export function Counter1() {
   return (
     <div className={styles.container}>
       <p className={styles.value}>{count}</p>
-      <button
+      <Button
         className={styles.btn}
         type="button"
         onClick={() => dispatch({ type: 'increment', payload: 1 })}
       >
         Увеличить
-      </button>
+      </Button>
 
-      <button
+      <Button
         className={styles.btn}
         type="button"
         onClick={() => dispatch({ type: 'decrement', payload: 1 })}
       >
         Уменьшить
-      </button>
+      </Button>
     </div>
   );
 }
@@ -91,21 +92,21 @@ export function Counter2() {
   return (
     <div className={styles.container}>
       <p className={styles.value}>{state.count}</p>
-      <button
+      <Button
         className={styles.btn}
         type="button"
         onClick={() => dispatch({ type: 'increment', payload: 1 })}
       >
         Увеличить
-      </button>
+      </Button>
 
-      <button
+      <Button
         className={styles.btn}
         type="button"
         onClick={() => dispatch({ type: 'decrement', payload: 1 })}
       >
         Уменьшить
-      </button>
+      </Button>
     </div>
   );
 }
