@@ -10,7 +10,8 @@
 // import App from 'components/03-4-search-news/App';
 // import App from 'components/04-1-hooks';
 // import App from 'components/04-2-hooks';
-import App from 'components/04-3-hooks';
+// import App from 'components/04-3-hooks';
+import { App } from 'components/04-4-hooks/components/App';
 
 export const AppIndex = () => (
   <>
