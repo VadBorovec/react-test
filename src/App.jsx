@@ -12,8 +12,8 @@
 // import App from 'components/04-2-hooks';
 // import App from 'components/04-3-hooks';
 // import { App } from 'components/04-4-hooks/components/App';
-import { App } from 'components/05-1-route/components/App';
-// import { App } from 'components/05-2-route/components/App';
+// import { App } from 'components/05-1-route/components/App';
+import { App } from 'components/05-2-route/components/App';
 
 export const AppIndex = () => (
   <>
