@@ -19,13 +19,13 @@ const DogDetails = () => {
   return (
     <>
       <h1>DogDetails: {dogId}</h1>
-      <Link to={backLinkLocationRef.current}>Назад к странице коллекции</Link>
+      <Link to={backLinkLocationRef.current}>Back to the collection</Link>
       <ul>
         <li>
-          <Link to="subbreeds">Подподроды</Link>
+          <Link to="subbreeds">Subbreeds</Link>
         </li>
         <li>
-          <Link to="gallery">Галерея</Link>
+          <Link to="gallery">Gallery</Link>
         </li>
       </ul>
       <Suspense fallback={<div>LOADING SUBPAGE...</div>}>
