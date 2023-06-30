@@ -12,10 +12,10 @@ const DogDetails = () => {
       <h1>DogDetails: {dogId}</h1>
       <ul>
         <li>
-          <Link to="subbreeds">Подподроды</Link>
+          <Link to="subbreeds">Subbreeds</Link>
         </li>
         <li>
-          <Link to="gallery">Галерея</Link>
+          <Link to="gallery">Gallery</Link>
         </li>
       </ul>
       <Outlet />

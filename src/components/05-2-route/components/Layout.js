@@ -16,10 +16,10 @@ export const Layout = () => {
       <header>
         <ul>
           <li>
-            <StyledLink to="/">Домашняя</StyledLink>
+            <StyledLink to="/">Home</StyledLink>
           </li>
           <li>
-            <StyledLink to="/dogs">Коллекция</StyledLink>
+            <StyledLink to="/dogs">Collection</StyledLink>
           </li>
         </ul>
       </header>
