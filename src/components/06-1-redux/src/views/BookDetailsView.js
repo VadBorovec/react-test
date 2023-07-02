@@ -14,7 +14,7 @@ export default function BookDetailsView() {
     const booksArray = db.books;
     const searchedBook = booksArray.find(book => book.id === bookId);
 
-    console.log(searchedBook);
+    // console.log(searchedBook);
     setBook(searchedBook);
   }, [bookId]);
 

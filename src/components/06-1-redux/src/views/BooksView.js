@@ -15,7 +15,7 @@ export default function BooksView() {
     setBooks(db.books);
   }, []);
 
-  console.log(books);
+  // console.log(books);
 
   return (
     <>

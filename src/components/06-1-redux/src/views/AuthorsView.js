@@ -1,20 +1,21 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
-import { NavLink, Route, useMatch } from 'react-router-dom';
-import * as bookShelfAPI from '../services/bookshelf-api';
+import { NavLink, Route, Routes } from 'react-router-dom';
 import PageHeading from '../components/PageHeading/PageHeading';
-// import AuthorSubView from './AuthorSubView';
+
+import db from '../../db.json';
 
 const AuthorSubView = lazy(() =>
   import('./AuthorSubView.js' /* webpackChunkName: "authors-subview"*/)
 );
 
 export default function AuthorsView() {
-  const { url, path } = useMatch();
   const [authors, setAuthors] = useState(null);
 
   useEffect(() => {
-    bookShelfAPI.fetchAuthors().then(setAuthors);
+    setAuthors(db.authors);
   }, []);
+
+  // console.log(authors);
 
   return (
     <>
@@ -24,7 +25,7 @@ export default function AuthorsView() {
         <ul>
           {authors.map(author => (
             <li key={author.id}>
-              <NavLink to={`${url}/${author.id}`}>{author.name}</NavLink>
+              <NavLink to={`${author.id}`}>{author.name}</NavLink>
             </li>
           ))}
         </ul>
@@ -32,9 +33,12 @@ export default function AuthorsView() {
       <hr />
 
       <Suspense fallback={<h1>Загружаем подмаршрут...</h1>}>
-        <Route path={`${path}/:authorId`}>
-          {authors && <AuthorSubView authors={authors} />}
-        </Route>
+        <Routes>
+          <Route
+            path={`:authorId`}
+            element={authors && <AuthorSubView authors={authors} />}
+          />
+        </Routes>
       </Suspense>
     </>
   );

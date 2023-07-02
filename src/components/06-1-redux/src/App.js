@@ -25,7 +25,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomeView />} />
-        <Route path="authors" element={<AuthorsView />} />
+        <Route path="authors/*" element={<AuthorsView />} />
         <Route path="books" element={<BooksView />} end />
         <Route path="books/:slug" element={<BookDetailsView />} />
         <Route element={<NotFoundView />} />
