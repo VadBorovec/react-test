@@ -15,7 +15,7 @@ import { createAction, createReducer, createSlice } from '@reduxjs/toolkit';
 
 // * using createSlice
 const mySlice = createSlice({
-  name: 'myValueSlice',
+  name: 'myValue',
   initialState: 15,
   reducers: {
     increment(state, action) {
@@ -33,21 +33,38 @@ const mySlice = createSlice({
 export const { increment, decrement, incrementByAmount } = mySlice.actions;
 
 // * using createReducer
-export const add = createAction('items/add');
-export const remove = createAction('items/remove');
+// export const add = createAction('items/add');
+// export const remove = createAction('items/remove');
 
-console.log(increment(100));
-console.log(increment.toString());
+// const itemsReducer = createReducer([], {
+//   [add]: (state, action) => state.push(action.payload),
+//   [remove]: (state, action) => state.filter(item => item.id !== action.payload),
+// });
 
-const itemsReducer = createReducer([], {
-  [add]: (state, action) => state.push(action.payload),
-  [remove]: (state, action) => state.filter(item => item.id !== action.payload),
+// * using createSlice
+
+const itemsSlice = createSlice({
+  name: 'items',
+  initialState: [],
+  reducers: {
+    // add(state, action) {[...state, { ...action.payload }]},
+    add(state, action) {
+      state.push(action.payload);
+    },
+    remove(state, action) {
+      return state.filter(item => item.id !== action.payload);
+    },
+  },
 });
 
+export const { add, remove } = itemsSlice.actions;
+
+//  * STORE
 export const store = configureStore({
   reducer: {
     // myValue: myReducer,
-    myValueSlice: mySlice.reducer,
-    items: itemsReducer,
+    myValue: mySlice.reducer,
+    // items: itemsReducer,
+    items: itemsSlice,
   },
 });

@@ -4,7 +4,7 @@ import { increment, decrement } from '../redux/store';
 
 export const Layout = () => {
   const dispatch = useDispatch();
-  const value = useSelector(state => state.myValueSlice);
+  const value = useSelector(state => state.myValue);
   return (
     <div>
       <button type="button" onClick={() => dispatch(decrement(1))}>
