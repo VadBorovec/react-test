@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Controls } from '../components/Reader/Controls';
 import { Progress } from '../components/Reader/Progress';
 import { Publication } from '../components/Reader/Publication';
+import { useLogOutRedirect } from '../hooks/useLogOutRedirect';
 
 export const Reader = ({ items }) => {
   const [publicationIndex, setPublicationIndex] = useState(0);
@@ -11,6 +12,8 @@ export const Reader = ({ items }) => {
   };
 
   const publication = items[publicationIndex];
+
+  useLogOutRedirect();
 
   return (
     <div>

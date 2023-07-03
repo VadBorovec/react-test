@@ -11,7 +11,9 @@ export const UserMenu = () => {
   return (
     <div>
       {login}
-      <button onClick={handleLogOut}>Log out</button>
+      <button onClick={handleLogOut} style={{ marginLeft: 12 }}>
+        Log out
+      </button>
     </div>
   );
 };

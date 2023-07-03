@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 import { SearchForm } from '../components/SearchForm/SearchForm';
+import { useLogOutRedirect } from '../hooks/useLogOutRedirect';
 
 const getImages = async searchTerm => {
   const query = searchTerm ?? 'flowers';
@@ -21,6 +22,8 @@ export const Images = () => {
     };
     fetchImages();
   }, [searchTerm]);
+
+  useLogOutRedirect();
 
   return (
     <>

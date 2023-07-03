@@ -1,7 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router';
 import { logIn } from '../redux/userSlice';
 
 export const LoginForm = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const handleSubmit = e => {
     e.preventDefault();
@@ -10,7 +12,9 @@ export const LoginForm = () => {
     //   console.log(form.elements.login.value);
     dispatch(logIn(form.elements.login.value));
     form.reset();
+    navigate('/dashboard', { replace: true });
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <input type="text" name="login" />

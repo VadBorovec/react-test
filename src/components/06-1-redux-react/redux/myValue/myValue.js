@@ -1,23 +1,23 @@
-import { createAction, createReducer, createSlice } from '@reduxjs/toolkit';
+// import { createAction, createReducer, createSlice } from '@reduxjs/toolkit';
 
-// * using createSlice
-export const mySlice = createSlice({
-  name: 'myValue',
-  initialState: 15,
-  reducers: {
-    increment(state, action) {
-      return state + action.payload;
-    },
-    decrement(state, action) {
-      return state - action.payload;
-    },
-    incrementByAmount(state, action) {
-      return (state += action.payload);
-    },
-  },
-});
+// // * using createSlice
+// export const mySlice = createSlice({
+//   name: 'myValue',
+//   initialState: 15,
+//   reducers: {
+//     increment(state, action) {
+//       return state + action.payload;
+//     },
+//     decrement(state, action) {
+//       return state - action.payload;
+//     },
+//     incrementByAmount(state, action) {
+//       return (state += action.payload);
+//     },
+//   },
+// });
 
-export const { increment, decrement, incrementByAmount } = mySlice.actions;
+// export const { increment, decrement, incrementByAmount } = mySlice.actions;
 
 // * using createReducer
 // export const increment = createAction('myValue/increment');
