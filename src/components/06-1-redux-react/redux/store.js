@@ -1,70 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { createAction, createReducer, createSlice } from '@reduxjs/toolkit';
-
-// * using createReducer
-// export const increment = createAction('myValue/increment');
-// export const decrement = createAction('myValue/decrement');
-
-// console.log(increment(100));
-// console.log(increment.toString());
-
-// const myReducer = createReducer(10, {
-//   [increment]: (state, action) => state + action.payload,
-//   [decrement]: (state, action) => state - action.payload,
-// });
-
-// * using createSlice
-const mySlice = createSlice({
-  name: 'myValue',
-  initialState: 15,
-  reducers: {
-    increment(state, action) {
-      return state + action.payload;
-    },
-    decrement(state, action) {
-      return state - action.payload;
-    },
-    incrementByAmount(state, action) {
-      return (state += action.payload);
-    },
-  },
-});
-
-export const { increment, decrement, incrementByAmount } = mySlice.actions;
-
-// * using createReducer
-// export const add = createAction('items/add');
-// export const remove = createAction('items/remove');
-
-// const itemsReducer = createReducer([], {
-//   [add]: (state, action) => state.push(action.payload),
-//   [remove]: (state, action) => state.filter(item => item.id !== action.payload),
-// });
-
-// * using createSlice
-
-const itemsSlice = createSlice({
-  name: 'items',
-  initialState: [],
-  reducers: {
-    // add(state, action) {[...state, { ...action.payload }]},
-    add(state, action) {
-      state.push(action.payload);
-    },
-    remove(state, action) {
-      return state.filter(item => item.id !== action.payload);
-    },
-  },
-});
-
-export const { add, remove } = itemsSlice.actions;
+import { mySlice } from './myValue/myValue';
+import { userSlice } from './userSlice';
 
 //  * STORE
 export const store = configureStore({
   reducer: {
-    // myValue: myReducer,
+    user: userSlice.reducer,
     myValue: mySlice.reducer,
+    // myValue: myReducer,
     // items: itemsReducer,
-    items: itemsSlice,
+    // items: itemsSlice,
   },
 });
