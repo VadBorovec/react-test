@@ -29,20 +29,3 @@ export const Layout = () => {
 //     </div>
 //   );
 // };
-
-// !================init files
-// export const Layout = () => {
-//   return (
-//     <div>
-
-//       <nav>
-//         <Link to="/player">Player</Link>
-//         <br />
-//         <Link to="/reader">Reader</Link>
-//         <br />
-//         <Link to="/images">Images</Link>
-//       </nav>
-//       <Outlet />
-//     </div>
-//   );
-// };

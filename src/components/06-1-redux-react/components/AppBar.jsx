@@ -15,7 +15,59 @@ export const AppBar = () => {
       }}
     >
       <nav>
-        <Link to="/login">Log in</Link>
+        {!isLoggedIn && (
+          <Link
+            to="/login"
+            style={{
+              padding: 8,
+              marginRight: 12,
+            }}
+          >
+            Log in
+          </Link>
+        )}
+
+        {isLoggedIn && (
+          <>
+            {' '}
+            <Link
+              to="/dashboard"
+              style={{
+                padding: 8,
+                marginRight: 12,
+              }}
+            >
+              Dashboard
+            </Link>
+            <Link
+              to="/player"
+              style={{
+                padding: 8,
+                marginRight: 12,
+              }}
+            >
+              Player
+            </Link>
+            <Link
+              to="/reader"
+              style={{
+                padding: 8,
+                marginRight: 12,
+              }}
+            >
+              Reader
+            </Link>
+            <Link
+              to="/images"
+              style={{
+                padding: 8,
+                marginRight: 12,
+              }}
+            >
+              Images
+            </Link>
+          </>
+        )}
       </nav>
       {isLoggedIn && <UserMenu />}
     </header>

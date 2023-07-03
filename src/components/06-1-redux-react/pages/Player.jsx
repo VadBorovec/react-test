@@ -3,6 +3,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { VideoList } from '../components/VideoList/VideoList';
 import { VideoPlayer } from '../components/VideoPlayer/VideoPlayer';
 import videos from '../videos.json';
+import { useLogOutRedirect } from '../hooks/useLogOutRedirect';
 
 export const Player = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -12,6 +13,7 @@ export const Player = () => {
     setSelectedVideo(link);
   };
 
+  useLogOutRedirect();
   return (
     <>
       <Toaster position="bottom-right" />
