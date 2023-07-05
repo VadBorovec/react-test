@@ -14,8 +14,9 @@
 // import { App } from 'components/04-4-hooks/components/App';
 // import { App } from 'components/05-1-route/components/App';
 // import { App } from 'components/05-2-route/components/App';
-// import App from 'components/06-1-redux/src/App.js';
-import App from 'components/06-1-redux-react/index.js';
+// import App from 'components/06-1-redux/src/App';
+// import App from 'components/06-1-redux-react/index';
+import App from './components/06-2-redux/index';
 
 export const AppIndex = () => (
   <>
