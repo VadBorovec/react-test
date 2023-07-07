@@ -17,7 +17,9 @@
 // import App from 'components/06-1-redux/src/App';
 // import App from 'components/06-1-redux-react/index';
 // import App from 'components/06-2-redux/index';
-import { App } from 'components/06-2-redux-blended';
+// import { App } from 'components/06-2-redux-blended';
+// import { App } from 'components/07-1-redux-re-export';
+import { App } from 'components/07-1-re-export/src';
 
 export const AppIndex = () => (
   <>
