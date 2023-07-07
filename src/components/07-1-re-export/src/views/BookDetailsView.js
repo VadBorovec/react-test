@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom'; // useHistory
-import PageHeading from '../components/PageHeading/PageHeading';
-
-import db from '../../db.json';
+import { PageHeading } from '../components/PageHeading';
+import * as bookShelfAPI from '../services/bookshelf-api';
 
 export default function BookDetailsView() {
   const location = useLocation();
@@ -11,11 +10,7 @@ export default function BookDetailsView() {
   const [book, setBook] = useState(null);
 
   useEffect(() => {
-    const booksArray = db.books;
-    const searchedBook = booksArray.find(book => book.id === bookId);
-
-    // console.log(searchedBook);
-    setBook(searchedBook);
+    bookShelfAPI.fetchBookById(bookId).then(setBook);
   }, [bookId]);
 
   return (
@@ -31,7 +26,7 @@ export default function BookDetailsView() {
 
           <img src={book.imgUrl} alt={book.title} />
           <h2>{book.title}</h2>
-          {/* <p>Автор: {book.author.name}</p> */}
+          <p>Автор: {book.author.name}</p>
           <p>{book.descr}</p>
         </>
       )}

@@ -2,8 +2,6 @@ import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 
-import 'react-toastify/dist/ReactToastify.css';
-
 const HomeView = lazy(() =>
   import('./views/HomeView' /* webpackChunkName: "home-view" */)
 );

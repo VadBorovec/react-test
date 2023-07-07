@@ -1,29 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import slugify from 'slugify';
-import PageHeading from '../components/PageHeading/PageHeading';
-
-import * as booksOperations from '../redux/books/booksOperations';
 import { useSelector, useDispatch } from 'react-redux';
-import db from '../../db.json';
+import slugify from 'slugify';
+import { booksOperations, booksSelectors } from '../redux/books';
+import { PageHeading } from '../components/PageHeading';
 
 const makeSlug = string => slugify(string, { lower: true });
 
 export default function BooksView() {
   const location = useLocation();
   const dispatch = useDispatch();
+  const books = useSelector(booksSelectors.getBooks);
 
   useEffect(() => {
     dispatch(booksOperations.fetchBooks());
   }, [dispatch]);
 
-  // console.log(books);
-
   return (
     <>
       <PageHeading text="Книги" />
 
-      {/* {books && (
+      {books.length > 0 && (
         <ul>
           {books.map(book => (
             <li key={book.id}>
@@ -43,7 +40,7 @@ export default function BooksView() {
             </li>
           ))}
         </ul>
-      )} */}
+      )}
     </>
   );
 }

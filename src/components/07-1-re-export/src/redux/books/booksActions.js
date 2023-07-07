@@ -1,10 +1,12 @@
-import { createAction } from '@reduxjs/toolkit';
+// !==========dont need when use createAsyncThunk()
 
-// pending
-export const fetchBooksRequest = createAction('books/fetchBooksRequest');
+// import { createAction } from '@reduxjs/toolkit';
 
-// fulfilled
-export const fetchBooksSuccess = createAction('books/fetchBooksSuccess');
+// // pending
+// export const fetchBooksRequest = createAction('books/fetchBooksRequest');
 
-// rejected
-export const fetchBooksError = createAction('books/fetchBooksError');
+// // fulfilled
+// export const fetchBooksSuccess = createAction('books/fetchBooksSuccess');
+
+// // rejected
+// export const fetchBooksError = createAction('books/fetchBooksError');
