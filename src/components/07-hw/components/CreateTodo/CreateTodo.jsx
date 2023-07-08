@@ -1,9 +1,9 @@
-import { Navigate } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
-import { useCreateTodoMutation } from '../redux/todos/todoSlice';
-import { Spinner } from '../components';
+import { useCreateTodoMutation } from '../../redux/todos/todoSlice';
+import { Spinner } from '../Spinner';
 
-export const CreateTodoPage = () => {
+export const CreateTodo = () => {
   const [createTodo, { isLoading, isSuccess }] = useCreateTodoMutation();
 
   const handleSubmit = async e => {
@@ -21,7 +21,7 @@ export const CreateTodoPage = () => {
 
   return (
     <>
-      {isSuccess && <Navigate replace to="/todos" />}
+      {/* {isSuccess && <Navigate replace to="/todos" />} */}
       <form autoComplete="off" onSubmit={handleSubmit}>
         <input type="text" name="name" />
         <input type="phone" name="phone" />
