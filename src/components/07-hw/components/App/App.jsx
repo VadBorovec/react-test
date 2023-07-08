@@ -1,4 +1,4 @@
-import { Container, Section, Text } from '../../components/ui';
+import { Container, Section } from '../ui';
 // import {
 //   ContactFilter,
 //   ContactForm,
@@ -9,27 +9,25 @@ import { Container, Section, Text } from '../../components/ui';
 // import { useSelector } from 'react-redux';
 // import { selectContact } from 'redux/selectors';
 import { useFetchContactsQuery } from '../../redux/contacts/contactsSlice';
-import { Spinner, ContactList, CreateTodo } from '../index';
+import { Spinner, ContactForm, ContactList, CreateTodo } from '../index';
 
 export const App1 = () => {
   // const contacts = useSelector(selectContact);
-  const { data, isFetching } = useFetchContactsQuery();
+  const { data: contacts, isFetching } = useFetchContactsQuery();
+  console.log(contacts);
 
   return (
     <Container>
       <Section title="Phonebook">
-        <CreateTodo />
+        {/* <CreateTodo /> */}
+        <ContactForm />
         {isFetching && <Spinner />}
-        {data && <ContactList todos={data} />}
-        {/* <ContactForm />
-        <ContactFilter />
-        <ContactStats />
+        {/* {contacts && <ContactList contacts={contacts} />} */}
 
-        {contacts.length === 0 ? (
-          <Text textAlign="center">There are no any numbers...</Text>
-        ) : (
-          <ContactList />
-        )} */}
+        {/* <ContactFilter /> */}
+        {/* <ContactStats /> */}
+
+        {contacts && <ContactList contacts={contacts} />}
       </Section>
     </Container>
   );

@@ -4,13 +4,13 @@ import { useCreateContactMutation } from '../../redux/contacts/contactsSlice';
 import { Spinner } from '../Spinner';
 
 export const CreateTodo = () => {
-  const [createTodo, { isLoading, isSuccess }] = useCreateContactMutation();
+  const [createContact, { isLoading, isSuccess }] = useCreateContactMutation();
 
   const handleSubmit = async e => {
     e.preventDefault();
     const contactName = e.currentTarget.elements.name.value;
     const contactPhone = e.currentTarget.elements.phone.value;
-    createTodo({
+    createContact({
       contactName,
       contactPhone,
     });

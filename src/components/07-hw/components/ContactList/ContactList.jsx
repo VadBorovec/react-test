@@ -1,12 +1,19 @@
 import { ContactItem } from '../ContactItem';
+import { Text } from '../ui';
 import { List } from './ContactList.styled';
 
-export const ContactList = ({ todos }) => {
+export const ContactList = ({ contacts }) => {
   return (
     <List>
-      {todos.map(({ id, name, phone }) => (
-        <ContactItem id={id} name={name} phone={phone} />
-      ))}
+      {contacts && contacts.length === 0 ? (
+        <Text textAlign="center">There are no any numbers...</Text>
+      ) : (
+        <>
+          {contacts.map(({ id, name, phone }) => (
+            <ContactItem key={id} id={id} name={name} phone={phone} />
+          ))}
+        </>
+      )}
     </List>
   );
 };
