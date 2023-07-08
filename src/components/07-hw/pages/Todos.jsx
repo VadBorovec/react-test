@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { useFetchTodosQuery } from '../redux/todos/todoSlice';
+import { useFetchTodosQuery } from '../redux/contacts/contactsSlice';
 import { Spinner, TodoList } from '../components';
 
 export const TodosPage = () => {

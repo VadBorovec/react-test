@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
-import { useCreateTodoMutation } from '../redux/todos/todoSlice';
+import { useCreateTodoMutation } from '../redux/contacts/contactsSlice';
 import { Spinner } from '../components';
 
 export const CreateTodoPage = () => {

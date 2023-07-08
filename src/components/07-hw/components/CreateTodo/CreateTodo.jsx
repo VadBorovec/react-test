@@ -1,10 +1,10 @@
 // import { Navigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
-import { useCreateTodoMutation } from '../../redux/todos/todoSlice';
+import { useCreateContactMutation } from '../../redux/contacts/contactsSlice';
 import { Spinner } from '../Spinner';
 
 export const CreateTodo = () => {
-  const [createTodo, { isLoading, isSuccess }] = useCreateTodoMutation();
+  const [createTodo, { isLoading, isSuccess }] = useCreateContactMutation();
 
   const handleSubmit = async e => {
     e.preventDefault();

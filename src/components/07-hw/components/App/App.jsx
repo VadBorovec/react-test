@@ -8,12 +8,12 @@ import { Container, Section, Text } from '../../components/ui';
 
 // import { useSelector } from 'react-redux';
 // import { selectContact } from 'redux/selectors';
-import { useFetchTodosQuery } from '../../redux/todos/todoSlice';
-import { Spinner, ContactList, TodoList, CreateTodo } from '../index';
+import { useFetchContactsQuery } from '../../redux/contacts/contactsSlice';
+import { Spinner, ContactList, CreateTodo } from '../index';
 
 export const App1 = () => {
   // const contacts = useSelector(selectContact);
-  const { data, isFetching } = useFetchTodosQuery();
+  const { data, isFetching } = useFetchContactsQuery();
 
   return (
     <Container>

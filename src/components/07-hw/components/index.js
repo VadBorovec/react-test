@@ -4,7 +4,5 @@ export * from './Container';
 export * from './Navigation';
 export * from './SearchBox';
 export * from './Spinner';
-export * from './TodoList';
-export * from './TodoListItem';
 export * from './CreateTodo';
 export * from './ContactList';
