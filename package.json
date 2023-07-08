@@ -17,6 +17,7 @@
     "modern-normalize": "^2.0.0",
     "nanoid": "^4.0.2",
     "node-sass": "^7.0.3",
+    "notiflix": "^3.2.6",
     "prop-types": "^15.8.1",
     "random-number": "^0.0.9",
     "react": "^18.2.0",

@@ -4,7 +4,7 @@ import { Spinner, TodoList } from '../components';
 
 export const TodosPage = () => {
   const location = useLocation();
-  const { data: todos, isFetching } = useFetchTodosQuery();
+  const { data, isFetching } = useFetchTodosQuery();
 
   return (
     <div>
@@ -12,7 +12,7 @@ export const TodosPage = () => {
         Create todo
       </Link>
       {isFetching && <Spinner />}
-      {todos && <TodoList todos={todos} />}
+      {data && <TodoList todos={data} />}
     </div>
   );
 };

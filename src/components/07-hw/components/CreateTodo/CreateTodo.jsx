@@ -1,16 +1,16 @@
-import { Navigate } from 'react-router-dom';
+// import { Navigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
-import { useCreateTodoMutation } from '../redux/todos/todoSlice';
-import { Spinner } from '../components';
+import { useCreateContactMutation } from '../../redux/contacts/contactsSlice';
+import { Spinner } from '../Spinner';
 
-export const CreateTodoPage = () => {
-  const [createTodo, { isLoading, isSuccess }] = useCreateTodoMutation();
+export const CreateTodo = () => {
+  const [createContact, { isLoading, isSuccess }] = useCreateContactMutation();
 
   const handleSubmit = async e => {
     e.preventDefault();
     const contactName = e.currentTarget.elements.name.value;
     const contactPhone = e.currentTarget.elements.phone.value;
-    createTodo({
+    createContact({
       contactName,
       contactPhone,
     });
@@ -21,7 +21,7 @@ export const CreateTodoPage = () => {
 
   return (
     <>
-      {isSuccess && <Navigate replace to="/todos" />}
+      {/* {isSuccess && <Navigate replace to="/todos" />} */}
       <form autoComplete="off" onSubmit={handleSubmit}>
         <input type="text" name="name" />
         <input type="phone" name="phone" />
