@@ -18,6 +18,7 @@
     "modern-normalize": "^2.0.0",
     "nanoid": "^4.0.2",
     "node-sass": "^7.0.3",
+    "normalizr": "^3.6.2",
     "notiflix": "^3.2.6",
     "prop-types": "^15.8.1",
     "random-number": "^0.0.9",
@@ -54,7 +55,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server --delay 500 --port 4040 -w server/db.json"
+    "server": "json-server --delay 500 --port 4040 -w server/db.json",
+        "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": [
