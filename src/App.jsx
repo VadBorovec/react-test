@@ -21,7 +21,9 @@
 // import { App } from 'components/07-1-redux-re-export';
 // import { App } from 'components/07-1-re-export/src';
 // import { App } from 'components/07-2-rtk-query';
-import { App } from 'components/07-hw';
+// import { App } from 'components/07-hw';
+// import { App } from 'components/07-2-lesson/srcRTKQuery';
+import { App } from 'components/07-2-lesson/srcReactQuery';
 
 export const AppIndex = () => (
   <>

@@ -9,7 +9,7 @@ import { Spinner } from '../Spinner';
 export const ContactForm = () => {
   const [contactName, setContactName] = useState('');
   const [contactPhone, setContactPhone] = useState('');
-  const [createContact, { isLoading, isSuccess }] = useCreateContactMutation();
+  const [createContact, { isLoading }] = useCreateContactMutation();
 
   const handleSubmit = e => {
     e.preventDefault();
