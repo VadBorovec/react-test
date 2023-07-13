@@ -24,9 +24,10 @@
 // import { App } from 'components/07-hw';
 // import { App } from 'components/07-2-lesson/srcRTKQuery';
 // import { App } from 'components/07-2-lesson/srcReactQuery';
-import { App } from 'components/08-1-users';
+// import { App } from 'components/08-1-users';
 // import { App } from 'components/08-2-protected-users';
 // import { App } from 'components/08-3-storybook';
+import { App } from 'components/08-taskbook';
 
 export const AppIndex = () => (
   <>
