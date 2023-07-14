@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import App1 from './App';
 import { store, persistor } from './redux/store';
+import App1 from './App';
 import 'modern-normalize/modern-normalize.css';
 import './styles/base.css';
 
