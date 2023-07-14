@@ -1,10 +1,10 @@
-import { useEffect, Suspense, lazy } from 'react';
+import { useEffect, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Switch } from 'react-router-dom';
-import AppBar from './components/AppBar';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from './components/Layout';
 import Container from './components/Container';
-import PrivateRoute from './components/PrivateRoute';
-import PublicRoute from './components/PublicRoute';
+import { PrivateRoute } from './components/PrivateRoute';
+import { PublicRoute } from './components/PublicRoute';
 import { authOperations, authSelectors } from './redux/auth';
 
 const HomeView = lazy(() => import('./views/HomeView'));
@@ -27,28 +27,45 @@ export default function App1() {
         <h1>Показываем React Skeleton</h1>
       ) : (
         <>
-          <AppBar />
-          <Switch>
-            <Suspense fallback={<p>Загружаем...</p>}>
-              <PublicRoute exact path="/">
-                <HomeView />
-              </PublicRoute>
-              <PublicRoute exact path="/register" restricted>
-                <RegisterView />
-              </PublicRoute>
-              <PublicRoute exact path="/login" redirectTo="/todos" restricted>
-                <LoginView />
-              </PublicRoute>
-              <PrivateRoute path="/todos" redirectTo="/login">
-                <TodosView />
-              </PrivateRoute>
-              <PrivateRoute path="/upload" redirectTo="/login">
-                <UploadView />
-              </PrivateRoute>
-            </Suspense>
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<HomeView />} />
+              <Route
+                path="/register"
+                element={
+                  <PublicRoute
+                    redirectTo="/tasks"
+                    component={<RegisterView />}
+                  />
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <PublicRoute redirectTo="/tasks" component={<LoginView />} />
+                }
+              />
+              <Route
+                path="/todos"
+                element={
+                  <PrivateRoute redirectTo="/login" component={<TodosView />} />
+                }
+              />
+              <Route
+                path="/upload"
+                element={
+                  <PrivateRoute
+                    redirectTo="/login"
+                    component={<UploadView />}
+                  />
+                }
+              />
+            </Route>
+          </Routes>
         </>
       )}
     </Container>
   );
 }
+
+// !==========
